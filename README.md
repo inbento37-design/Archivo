@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acceso exclusivo</title>
+  <title>Acceso seguro - Ejemplo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { font-family: Arial, sans-serif; }
@@ -12,13 +12,13 @@
 <body class="bg-gray-50 text-gray-900">
 
   <header class="bg-white shadow p-4 flex justify-between">
-    <h1 class="text-xl font-bold">🎯 Acceso Exclusivo</h1>
+    <h1 class="text-xl font-bold">🔒 Acceso Seguro</h1>
     <button id="open-sub-modal" class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold">Suscribirse</button>
   </header>
 
   <main class="max-w-2xl mx-auto p-6 text-center">
-    <h2 class="text-2xl font-bold mb-4">Sigue los pasos para descargar</h2>
-    <p class="mb-6">Debes suscribirte, dar like, unirte al grupo y al canal antes de descargar.</p>
+    <h2 class="text-2xl font-bold mb-4">Sigue los pasos para obtener tu recurso</h2>
+    <p class="mb-6">Suscríbete al canal, dale like al video, únete al grupo y luego descarga.</p>
     <button id="open-gate" class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold">Suscribirse</button>
   </main>
 
@@ -29,7 +29,7 @@
       <h3 class="text-xl font-bold mb-2">Verificación de pasos</h3>
       <p class="text-sm text-gray-600 mb-4">Completa cada paso para desbloquear la descarga.</p>
 
-      <!-- Paso 1: Like -->
+      <!-- Paso 1: Dar like al video -->
       <div id="like-step">
         <button id="open-video" class="bg-red-600 text-white px-5 py-3 rounded-lg font-semibold">Dar like al video</button>
       </div>
@@ -68,13 +68,18 @@
       <!-- Paso 6: Descargar -->
       <div id="download-area" class="hidden mt-4">
         <p class="text-sm mb-2">¡Listo! Ahora puedes descargar:</p>
-        <a href="https://www.mediafire.com/file/sgnr33uzryxobh3/AIMBOT_ACTUALIZADO_100%2525.7z/file" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Descargar ahora</a>
+        <a id="download-link" href="#" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Descargar ahora</a>
       </div>
 
     </div>
   </div>
 
   <script>
+    // Reemplaza con tus URLs válidas y legales
+    const VIDEO_URL = "https://www.youtube.com/";      // <-- remplazar por URL de video pública y legal
+    const CHANNEL_URL = "https://www.youtube.com/";    // <-- remplazar por canal si quieres abrirlo
+    const DOWNLOAD_URL = "https://example.com/tu-archivo.zip"; // <-- remplaza por URL segura y legal
+
     const modal = document.getElementById('subscribe-modal');
     const openGateBtn = document.getElementById('open-gate');
     const openVideoBtn = document.getElementById('open-video');
@@ -91,21 +96,28 @@
     const channelContinueWrapper = document.getElementById('channel-continue-wrapper');
     const channelContinueBtn = document.getElementById('channel-continue-btn');
     const downloadArea = document.getElementById('download-area');
+    const downloadLink = document.getElementById('download-link');
+
+    // Inicializa el link de descarga con placeholder (sustituir por uno legítimo)
+    downloadLink.href = DOWNLOAD_URL;
 
     function showModal(){ modal.classList.remove('hidden'); }
 
     openGateBtn.addEventListener('click', () => { 
       showModal(); 
-      window.open('https://www.youtube.com/@jk-trick2625', '_blank'); 
+      // abrir el canal en otra pestaña (si quieres)
+      window.open(CHANNEL_URL, '_blank'); 
     });
 
     document.getElementById('open-sub-modal').addEventListener('click', () => { 
       showModal(); 
-      window.open('https://www.youtube.com/@jk-trick2625', '_blank'); 
+      window.open(CHANNEL_URL, '_blank'); 
     });
 
     openVideoBtn.addEventListener('click', () => {
-      window.open('https://youtu.be/eKSO1Qb2zNc?si=Ixe9lINLPUAUPoSX', '_blank'); 
+      // abre el video (reemplaza VIDEO_URL con el URL real y legal)
+      window.open(VIDEO_URL, '_blank'); 
+      // muestra el siguiente paso
       robotCheck.classList.remove('hidden');
     });
 
@@ -113,6 +125,7 @@
       robotCheck.classList.add('hidden');
       progressArea.classList.remove('hidden');
       let progress = 0;
+      // 7 segundos ≈ 7000 ms; actualizamos la barra en 70ms para 100 pasos
       const interval = setInterval(() => {
         progress += 1;
         progressBar.style.width = progress + '%';
@@ -125,21 +138,27 @@
     });
 
     whatsappBtn.addEventListener('click', () => {
+      // Al hacer click en unirse al grupo, mostramos el botón "Seguir"
       continueWrapper.classList.remove('hidden');
     });
 
     continueBtn.addEventListener('click', () => {
+      // Oculta whatsapp y muestra canal
       whatsappArea.classList.add('hidden');
       channelArea.classList.remove('hidden');
     });
 
     channelBtn.addEventListener('click', () => {
+      // Al unirse al canal, mostramos botón seguir
       channelContinueWrapper.classList.remove('hidden');
     });
 
     channelContinueBtn.addEventListener('click', () => {
+      // Oculta canal y muestra descarga final
       channelArea.classList.add('hidden');
       downloadArea.classList.remove('hidden');
+      // Asegúrate de que DOWNLOAD_URL sea legal y seguro
+      downloadLink.href = DOWNLOAD_URL;
     });
   </script>
 
