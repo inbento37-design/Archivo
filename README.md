@@ -68,7 +68,7 @@
       <!-- Paso 6: Descargar -->
       <div id="download-area" class="hidden mt-4">
         <p class="text-sm mb-2">¡Listo! Ahora puedes descargar:</p>
-        <a href="https://www.mediafire.com/file/sgnr33uzryxobh3/AIMBOT+ACTUALIZADO+100%.7z/file" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Descargar ahora</a>
+        <a href="https://www.mediafire.com/file/sgnr33uzryxobh3/AIMBOT_ACTUALIZADO_100%2525.7z/file" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Descargar ahora</a>
       </div>
 
     </div>
