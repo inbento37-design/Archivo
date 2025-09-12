@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Acceso seguro - Ejemplo</title>
+  <title>Contenido Exclusivo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { font-family: Arial, sans-serif; }
@@ -12,13 +12,13 @@
 <body class="bg-gray-50 text-gray-900">
 
   <header class="bg-white shadow p-4 flex justify-between">
-    <h1 class="text-xl font-bold">🔒 Acceso Seguro</h1>
+    <h1 class="text-xl font-bold">📂 Contenido Exclusivo</h1>
     <button id="open-sub-modal" class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold">Suscribirse</button>
   </header>
 
   <main class="max-w-2xl mx-auto p-6 text-center">
-    <h2 class="text-2xl font-bold mb-4">Sigue los pasos para obtener tu recurso</h2>
-    <p class="mb-6">Suscríbete al canal, dale like al video, únete al grupo y luego descarga.</p>
+    <h2 class="text-2xl font-bold mb-4">Sigue los pasos para acceder</h2>
+    <p class="mb-6">Debes suscribirte, dar like, unirte al grupo y al canal antes de descargar.</p>
     <button id="open-gate" class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold">Suscribirse</button>
   </main>
 
@@ -50,7 +50,7 @@
       <!-- Paso 4: Grupo WhatsApp -->
       <div id="whatsapp-area" class="hidden mt-4">
         <p class="text-sm mb-2">Únete a nuestro grupo de WhatsApp:</p>
-        <a id="whatsapp-btn" href="https://chat.whatsapp.com/HkmNRGbee4x4hDOmCBNfAN?mode=ems_copy_c" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Unirme al grupo</a>
+        <a id="whatsapp-btn" href="https://chat.whatsapp.com/ejemplo" target="_blank" class="bg-green-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Unirme al grupo</a>
         <div class="mt-4 hidden" id="continue-wrapper">
           <button id="continue-btn" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold">Seguir</button>
         </div>
@@ -59,7 +59,7 @@
       <!-- Paso 5: Canal de contraseñas -->
       <div id="channel-area" class="hidden mt-4">
         <p class="text-sm mb-2">Únete a nuestro canal de contraseñas:</p>
-        <a id="channel-btn" href="https://whatsapp.com/channel/0029VbBBxkN1yT20bpPJnU23" target="_blank" class="bg-purple-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Unirme al canal</a>
+        <a id="channel-btn" href="https://whatsapp.com/channel/ejemplo" target="_blank" class="bg-purple-600 text-white px-5 py-3 rounded-lg font-semibold inline-block">Unirme al canal</a>
         <div class="mt-4 hidden" id="channel-continue-wrapper">
           <button id="channel-continue-btn" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold">Seguir</button>
         </div>
@@ -76,9 +76,9 @@
 
   <script>
     // Reemplaza con tus URLs válidas y legales
-    const VIDEO_URL = "https://www.youtube.com/";      // <-- remplazar por URL de video pública y legal
-    const CHANNEL_URL = "https://www.youtube.com/";    // <-- remplazar por canal si quieres abrirlo
-    const DOWNLOAD_URL = "https://example.com/tu-archivo.zip"; // <-- remplaza por URL segura y legal
+    const VIDEO_URL = "https://www.youtube.com/";      
+    const CHANNEL_URL = "https://www.youtube.com/";    
+    const DOWNLOAD_URL = "https://example.com/tu-archivo.zip"; 
 
     const modal = document.getElementById('subscribe-modal');
     const openGateBtn = document.getElementById('open-gate');
@@ -98,14 +98,12 @@
     const downloadArea = document.getElementById('download-area');
     const downloadLink = document.getElementById('download-link');
 
-    // Inicializa el link de descarga con placeholder (sustituir por uno legítimo)
     downloadLink.href = DOWNLOAD_URL;
 
     function showModal(){ modal.classList.remove('hidden'); }
 
     openGateBtn.addEventListener('click', () => { 
       showModal(); 
-      // abrir el canal en otra pestaña (si quieres)
       window.open(CHANNEL_URL, '_blank'); 
     });
 
@@ -115,9 +113,7 @@
     });
 
     openVideoBtn.addEventListener('click', () => {
-      // abre el video (reemplaza VIDEO_URL con el URL real y legal)
       window.open(VIDEO_URL, '_blank'); 
-      // muestra el siguiente paso
       robotCheck.classList.remove('hidden');
     });
 
@@ -125,7 +121,6 @@
       robotCheck.classList.add('hidden');
       progressArea.classList.remove('hidden');
       let progress = 0;
-      // 7 segundos ≈ 7000 ms; actualizamos la barra en 70ms para 100 pasos
       const interval = setInterval(() => {
         progress += 1;
         progressBar.style.width = progress + '%';
@@ -138,26 +133,21 @@
     });
 
     whatsappBtn.addEventListener('click', () => {
-      // Al hacer click en unirse al grupo, mostramos el botón "Seguir"
       continueWrapper.classList.remove('hidden');
     });
 
     continueBtn.addEventListener('click', () => {
-      // Oculta whatsapp y muestra canal
       whatsappArea.classList.add('hidden');
       channelArea.classList.remove('hidden');
     });
 
     channelBtn.addEventListener('click', () => {
-      // Al unirse al canal, mostramos botón seguir
       channelContinueWrapper.classList.remove('hidden');
     });
 
     channelContinueBtn.addEventListener('click', () => {
-      // Oculta canal y muestra descarga final
       channelArea.classList.add('hidden');
       downloadArea.classList.remove('hidden');
-      // Asegúrate de que DOWNLOAD_URL sea legal y seguro
       downloadLink.href = DOWNLOAD_URL;
     });
   </script>
