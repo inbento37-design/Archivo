@@ -75,9 +75,9 @@
   </div>
 
   <script>
-    // Canal y video (puedes actualizarlos si quieres)
+    // Canal y video
     const CHANNEL_URL = "https://www.youtube.com/@jk-trick2625";
-    const VIDEO_URL   = "https://youtu.be/JCj3l4bZU8o?si=uKwP7kil55WvTjLk";
+    const VIDEO_URL   = "https://youtu.be/wfw7e2vh3zc?si=4vk6hJgdTIOxz2Rm";
 
     const modal = document.getElementById('subscribe-modal');
     const openGateBtn = document.getElementById('open-gate');
